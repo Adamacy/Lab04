@@ -6,4 +6,15 @@ C:\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-i
       C:\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
       see declaration of 'sf::Exception'
   
+D:\Collage\Lab04\Lab04\Lab04.cpp(10,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Collage\Lab04\Lab04\Lab04.cpp(14,14): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+D:\Collage\Lab04\Lab04\Lab04.cpp(14,14): warning C4244:         with
+D:\Collage\Lab04\Lab04\Lab04.cpp(14,14): warning C4244:         [
+D:\Collage\Lab04\Lab04\Lab04.cpp(14,14): warning C4244:             T=unsigned int
+D:\Collage\Lab04\Lab04\Lab04.cpp(14,14): warning C4244:         ]
+D:\Collage\Lab04\Lab04\Lab04.cpp(15,15): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+D:\Collage\Lab04\Lab04\Lab04.cpp(15,15): warning C4244:         with
+D:\Collage\Lab04\Lab04\Lab04.cpp(15,15): warning C4244:         [
+D:\Collage\Lab04\Lab04\Lab04.cpp(15,15): warning C4244:             T=unsigned int
+D:\Collage\Lab04\Lab04\Lab04.cpp(15,15): warning C4244:         ]
   Lab04.vcxproj -> D:\Collage\Lab04\x64\Debug\Lab04.exe

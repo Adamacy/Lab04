@@ -137,6 +137,9 @@
   <ItemGroup>
     <ClCompile Include="Lab04.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CustomRectangle.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
