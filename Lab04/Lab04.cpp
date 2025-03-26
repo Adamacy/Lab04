@@ -17,7 +17,7 @@ int main()
 	CustomRectangleShape rectangle(sf::Vector2f(200, 100), sf::Vector2f(200, 100));
 	rectangle.setFillColor(sf::Color(255, 255, 0));
 	rectangle.setBounds(0, 0, WIDTH, HEIGHT);
-	rectangle.setSpeed(200, 150, sf::degrees(45));
+	rectangle.setSpeed(300, 200, sf::degrees(45));
 
 	sf::Clock clock;
 	while (window.isOpen()) {
@@ -27,8 +27,18 @@ int main()
 			if (event->is<sf::Event::Closed>()) {
 				window.close();
 			}
-			else if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
+			if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
 				rectangle.moveInDirection(elapsed, keyPressed->scancode);
+			}
+			if (const auto* mouseButtonPressed = event->getIf<sf::Event::MouseButtonPressed>()) {
+				if (const auto* mouseButtonPressed = event->getIf<sf::Event::MouseButtonPressed>()) {
+					if (mouseButtonPressed->button == sf::Mouse::Button::Left) {
+						sf::Vector2i mousePosition = mouseButtonPressed->position;
+						if (rectangle.isClicked(mousePosition)) {
+							std::cout << "Rectangle clicked!" << std::endl;
+						}
+					}
+				}
 			}
 		}
 		window.clear(sf::Color::Black);

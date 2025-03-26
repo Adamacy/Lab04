@@ -23,25 +23,32 @@ public:
 		rightBound_ = rightBound;
 	}
 	void moveInDirection(const sf::Time& elapsed, const sf::Keyboard::Scancode& key) {
-		if (key == sf::Keyboard::Scancode::W) {
-			std::cout << "Forward" << "\n";  // Check if this prints
+		if (key == sf::Keyboard::Scancode::W && getPosition().y > topBound_) {
 			move({ 0, -std::abs(verticalSpeed_ * elapsed.asSeconds()) });
 		}
-		if (key == sf::Keyboard::Scancode::S) {
-			std::cout << "Backward" << "\n";
+		if (key == sf::Keyboard::Scancode::S && getPosition().y + getSize().y < bottomBound_) {
 			move({ 0, std::abs(verticalSpeed_ * elapsed.asSeconds()) });
 		}
-		if (key == sf::Keyboard::Scancode::A) {
-			std::cout << "Left" << "\n";
+		if (key == sf::Keyboard::Scancode::A && getPosition().x > leftBound_) {
 			move({ -std::abs(horizontalSpeed_ * elapsed.asSeconds()), 0 });
 		}
-		if (key == sf::Keyboard::Scancode::D) {
-			std::cout << "Right" << "\n";
+		if (key == sf::Keyboard::Scancode::D && getPosition().x + getSize().x < rightBound_) {
 			move({ horizontalSpeed_ * elapsed.asSeconds(), 0 });
 		}
-		bounce();
 	}
+	bool isClicked(const sf::Vector2i& mouse_position) const {
+		float rectX = getPosition().x;
+		float rectY = getPosition().y;
+		float rectWidth = getSize().x;
+		float rectHeight = getSize().y;
 
+		// Check if the mouse click is within the bounds of the rectangle
+		if (mouse_position.x >= rectX && mouse_position.x <= rectX + rectWidth &&
+			mouse_position.y >= rectY && mouse_position.y <= rectY + rectHeight) {
+			return true;
+		}
+		return false;
+	}
 private:
 	float verticalSpeed_ = 0;
 	float horizontalSpeed_ = 0;
