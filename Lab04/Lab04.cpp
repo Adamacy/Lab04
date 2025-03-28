@@ -14,36 +14,61 @@ int main()
 	float WIDTH = window.getSize().x;
 	float HEIGHT = window.getSize().y;
 
-	CustomRectangleShape rectangle(sf::Vector2f(200, 100), sf::Vector2f(200, 100));
-	rectangle.setFillColor(sf::Color(255, 255, 0));
-	rectangle.setBounds(0, 0, WIDTH, HEIGHT);
-	rectangle.setSpeed(300, 200, sf::degrees(45));
+	std::vector<CustomRectangleShape> rectangles;
 
+	for (int i = 0; i < 10; i++)
+	{
+		sf::Vector2f size(120.0, 60.0);
+		sf::Vector2f position(std::rand() % (window.getSize().x - 120), std::rand() % (window.getSize().y - 60));
+		rectangles.emplace_back(CustomRectangleShape(size, position));
+	}
+
+	for (auto& rec : rectangles)
+	{
+		rec.setFillColor(sf::Color(0, 255, 0));
+		rec.setBounds(0, 0, window.getSize().x, window.getSize().y);
+		rec.setSpeed(100, 200, sf::degrees(10));
+	}
+	CustomRectangleShape* currentlyClicked = nullptr;
 	sf::Clock clock;
 	while (window.isOpen()) {
 		sf::Time elapsed = clock.restart();
-
+		window.clear(sf::Color::Black);
 		while (const std::optional event = window.pollEvent()) {
 			if (event->is<sf::Event::Closed>()) {
 				window.close();
 			}
-			if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
-				rectangle.moveInDirection(elapsed, keyPressed->scancode);
-			}
-			if (const auto* mouseButtonPressed = event->getIf<sf::Event::MouseButtonPressed>()) {
+			for (auto& rec : rectangles)
+			{
+				
+				if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
+					if (currentlyClicked) {
+						currentlyClicked->moveInDirection(elapsed, keyPressed->scancode);
+						std::cout << currentlyClicked->getPosition().x << " " << currentlyClicked->getPosition().y << "\n";
+					}
+				}
 				if (const auto* mouseButtonPressed = event->getIf<sf::Event::MouseButtonPressed>()) {
-					if (mouseButtonPressed->button == sf::Mouse::Button::Left) {
-						sf::Vector2i mousePosition = mouseButtonPressed->position;
-						if (rectangle.isClicked(mousePosition)) {
-							std::cout << "Rectangle clicked!" << std::endl;
+					if (const auto* mouseButtonPressed = event->getIf<sf::Event::MouseButtonPressed>()) {
+						if (mouseButtonPressed->button == sf::Mouse::Button::Left) {
+							sf::Vector2i mousePosition = mouseButtonPressed->position;
+							if (rec.isClicked(mousePosition)) {
+								currentlyClicked = &rec;
+								rec.setFillColor(sf::Color(255, 0, 255));
+							}
+							else {
+								rec.setFillColor(sf::Color(0, 255, 0));
+							}
 						}
 					}
 				}
 			}
 		}
-		window.clear(sf::Color::Black);
+		for (auto rec : rectangles) {
+			window.draw(rec);
+		}
+		
 
-		window.draw(rectangle);
+		
 
 		window.display();
 	}

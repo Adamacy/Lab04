@@ -23,32 +23,37 @@ public:
 		rightBound_ = rightBound;
 	}
 	void moveInDirection(const sf::Time& elapsed, const sf::Keyboard::Scancode& key) {
+		std::cout << "Scancode pressed: " << static_cast<int>(key) << std::endl;
+
 		if (key == sf::Keyboard::Scancode::W && getPosition().y > topBound_) {
 			move({ 0, -std::abs(verticalSpeed_ * elapsed.asSeconds()) });
 		}
-		if (key == sf::Keyboard::Scancode::S && getPosition().y + getSize().y < bottomBound_) {
+		else if (key == sf::Keyboard::Scancode::S && getPosition().y + getSize().y < bottomBound_) {
 			move({ 0, std::abs(verticalSpeed_ * elapsed.asSeconds()) });
 		}
 		if (key == sf::Keyboard::Scancode::A && getPosition().x > leftBound_) {
+			std::cout << "A pressed, moving left!" << std::endl;
 			move({ -std::abs(horizontalSpeed_ * elapsed.asSeconds()), 0 });
 		}
 		if (key == sf::Keyboard::Scancode::D && getPosition().x + getSize().x < rightBound_) {
+			std::cout << "D pressed, moving right!" << std::endl;
 			move({ horizontalSpeed_ * elapsed.asSeconds(), 0 });
 		}
 	}
-	bool isClicked(const sf::Vector2i& mouse_position) const {
-		float rectX = getPosition().x;
-		float rectY = getPosition().y;
-		float rectWidth = getSize().x;
-		float rectHeight = getSize().y;
+    bool isClicked(const sf::Vector2i& mouse_position) const {  
+       float rectX = getPosition().x;  
+       float rectY = getPosition().y;  
+       float rectWidth = getSize().x;  
+       float rectHeight = getSize().y;  
 
-		// Check if the mouse click is within the bounds of the rectangle
-		if (mouse_position.x >= rectX && mouse_position.x <= rectX + rectWidth &&
-			mouse_position.y >= rectY && mouse_position.y <= rectY + rectHeight) {
-			return true;
-		}
-		return false;
-	}
+       // Check if the mouse click is within the bounds of the rectangle  
+       if (mouse_position.x >= rectX && mouse_position.x <= rectX + rectWidth &&  
+           mouse_position.y >= rectY && mouse_position.y <= rectY + rectHeight) {  
+           return true;  
+       }  
+       return false;  
+    }
+	void setClicked(bool clicked) { clicked_ = clicked; }
 private:
 	float verticalSpeed_ = 0;
 	float horizontalSpeed_ = 0;
@@ -56,6 +61,7 @@ private:
 	float bottomBound_ = 0;
 	float leftBound_ = 0;
 	float rightBound_ = 0;
+	bool clicked_ = false;
 	sf::Angle rotation_ = sf::degrees(0);
 	void bounce() {
 		if (getPosition().x < leftBound_) {

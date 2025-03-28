@@ -17,4 +17,32 @@ D:\Collage\Lab04\Lab04\Lab04.cpp(15,15): warning C4244:         with
 D:\Collage\Lab04\Lab04\Lab04.cpp(15,15): warning C4244:         [
 D:\Collage\Lab04\Lab04\Lab04.cpp(15,15): warning C4244:             T=unsigned int
 D:\Collage\Lab04\Lab04\Lab04.cpp(15,15): warning C4244:         ]
+D:\Collage\Lab04\Lab04\Lab04.cpp(22,79): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+D:\Collage\Lab04\Lab04\Lab04.cpp(22,79): warning C4244:         with
+D:\Collage\Lab04\Lab04\Lab04.cpp(22,79): warning C4244:         [
+D:\Collage\Lab04\Lab04\Lab04.cpp(22,79): warning C4244:             T=unsigned int
+D:\Collage\Lab04\Lab04\Lab04.cpp(22,79): warning C4244:         ]
+D:\Collage\Lab04\Lab04\Lab04.cpp(22,79): warning C4244:         and
+D:\Collage\Lab04\Lab04\Lab04.cpp(22,79): warning C4244:         [
+D:\Collage\Lab04\Lab04\Lab04.cpp(22,79): warning C4244:             T=float
+D:\Collage\Lab04\Lab04\Lab04.cpp(22,79): warning C4244:         ]
+D:\Collage\Lab04\Lab04\Lab04.cpp(22,37): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+D:\Collage\Lab04\Lab04\Lab04.cpp(22,37): warning C4244:         with
+D:\Collage\Lab04\Lab04\Lab04.cpp(22,37): warning C4244:         [
+D:\Collage\Lab04\Lab04\Lab04.cpp(22,37): warning C4244:             T=unsigned int
+D:\Collage\Lab04\Lab04\Lab04.cpp(22,37): warning C4244:         ]
+D:\Collage\Lab04\Lab04\Lab04.cpp(22,37): warning C4244:         and
+D:\Collage\Lab04\Lab04\Lab04.cpp(22,37): warning C4244:         [
+D:\Collage\Lab04\Lab04\Lab04.cpp(22,37): warning C4244:             T=float
+D:\Collage\Lab04\Lab04\Lab04.cpp(22,37): warning C4244:         ]
+D:\Collage\Lab04\Lab04\Lab04.cpp(29,59): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+D:\Collage\Lab04\Lab04\Lab04.cpp(29,59): warning C4244:         with
+D:\Collage\Lab04\Lab04\Lab04.cpp(29,59): warning C4244:         [
+D:\Collage\Lab04\Lab04\Lab04.cpp(29,59): warning C4244:             T=unsigned int
+D:\Collage\Lab04\Lab04\Lab04.cpp(29,59): warning C4244:         ]
+D:\Collage\Lab04\Lab04\Lab04.cpp(29,39): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+D:\Collage\Lab04\Lab04\Lab04.cpp(29,39): warning C4244:         with
+D:\Collage\Lab04\Lab04\Lab04.cpp(29,39): warning C4244:         [
+D:\Collage\Lab04\Lab04\Lab04.cpp(29,39): warning C4244:             T=unsigned int
+D:\Collage\Lab04\Lab04\Lab04.cpp(29,39): warning C4244:         ]
   Lab04.vcxproj -> D:\Collage\Lab04\x64\Debug\Lab04.exe
